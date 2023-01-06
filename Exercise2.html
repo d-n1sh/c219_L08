@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+
+    <style>
+    .fullpage {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    </style>
+
+</head>
+<body>
+
+    <div id="fullpage">
+        <div class="section">Section 1</div>
+        <div class="section fp-section active fp-completely" id="section1" data-fp-styles="null" data-anchor="secondPage" style="height: 1890px; background-color: rgb(147, 159, 170);">
+            <div class="fp-slides"><div class="fp-slidesContainer" style="width: 300%; transition: all 700ms ease 0s; transform: translate3d(-980px, 0px, 0px);"><div class="slide fp-slide fp-table" id="slide1" style="width: 33.3333%;"><div class="fp-tableCell" style="height: 1890px;">
+                <div class="intro">
+                    <h1>Also in sections</h1>
+                    <img src="https://alvarotrigo.com/fullPage/examples/imgs/iphone-two.png" alt="iphone" id="iphone-two">
+                </div>
+            </div></div><div class="slide fp-slide fp-table active" id="slide2" style="width: 33.3333%;"><div class="fp-tableCell" style="height: 1890px;"><h1>Even inside slides</h1></div></div><div class="slide fp-slide fp-table" id="slide3" style="width: 33.3333%;"><div class="fp-tableCell" style="height: 1890px;">
+                <div class="intro">
+                    <h1>Scrolling slide</h1>
+                    <img src="https://alvarotrigo.com/fullPage/examples/imgs/iphone-red.png" alt="iphone" id="iphone-two">
+                    
+                </div>
+            </div></div></div></div><div class="fp-controlArrow fp-prev"></div><div class="fp-controlArrow fp-next"></div>
+    
+            
+            
+        </div>
+        anchors: ['section1', 'section2', 'section3']
+        <div class="section">Section 2</div>
+        <div class="section">Section 3</div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+	    $('#fullpage').fullpage({
+		    //options here
+		    autoScrolling:true,
+		    scrollHorizontally: true
+	    });
+
+	    //methods
+	    $.fn.fullpage.setAllowScrolling(false);
+    });
+    </script>
+
+    <div class="section">
+        <div class="slide">Slide 1</div>
+        <div class="slide">Slide 2</div>
+        <div class="slide">Slide 3</div>
+    </div>
+
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+</body>
+</html>
