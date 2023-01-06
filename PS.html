@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+
+    <style>
+    #fullpage .section {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+    }
+
+    p {font-size: 16px;}
+    .margin {margin-bottom: 45px;}
+    .bg-1 { 
+        background-color: #03A9F4;
+        color: #ffffff;
+    }
+    
+    .container-fluid {
+        padding-top: auto;
+        padding-bottom: 50px;
+    }
+
+    #btn
+    {
+        position: absolute;
+        bottom: 10%;
+        left: 43%;
+        transform: translate(-50%,-50%);
+        text-decoration: none;
+        display: inline-block;
+        padding: 2px 50px;
+        background: #fff;
+        border-radius: 40px;
+        font-size: 16px;
+        color: #2b1055;
+    }
+
+    #name
+    {
+        color: blue;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <div id="fullpage">
+        <div class="section"><br>
+            <div class="container-fluid bg-1 text-center">
+                <h3 class="margin">Who Am I?</h3>
+                <img src="images/Danish.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Danish" width="350" height="350">
+                <h3 id="name">I'm Danish</h3>
+                <script>
+        
+                var animation = anime({
+                  targets: '#name',
+                  width: '100%',
+                  direction: 'alternate',
+                  loop: true,
+                  easing: 'easeInOutSine'
+                });
+        
+                </script>
+        
+                <b>I am </b>
+                <b id="age"></b>
+                <b>years old</b>
+        
+                <script>
+                  anime({
+                  targets: '#age',
+                  innerHTML: [0, 19], //start and end values
+                  easing: 'linear',
+                  round: 1, //rounds off to zero decimal places
+                  duration: 2000
+                  });
+                </script>
+        
+                <p>
+                    I enjoy playing games during my freetime. What games? Dota 2, NFS Heat and Gta V.
+                </p>
+                <a href="#" id="btn">Click for more!</a>
+            </div>
+        
+            <script>
+              
+              anime({
+                targets: '#btn',
+                scale: [
+                  {value: .1, easing: 'easeOutSine', duration: 500},
+                  {value: 1, easing: 'easeInOutQuad', duration: 1200}
+                ],
+                delay: anime.stagger(200, {grid: [14, 5], from: 'center'})
+              });
+        
+              var animation = anime.timeline({});
+        
+              animation
+              .add({
+                targets: '#btn',
+                bottom: '20px',
+                duration: 500,
+                easing: 'easeInOutSine'
+              })
+            </script>
+        </div>
+        <div id="section2" class="section">
+
+            <div class="information">
+                <h4>Contact Number: </h4>
+                <b id="phone"></b> <br><br>
+
+                <h4>Email: </h4>
+                <b id="email">21012612@myrp.edu.sg</b>
+
+                <script>
+
+                    var spinTitle= anime({
+                        targets: ".section",
+                        rotate: "360deg",
+                        autoplay: false,
+                        duration: 1000,
+                        afterLoad: function (origin, destination, direction) {
+                        if (destination.index== 1) { //section 2
+                            spinTitle.play(); //anime.js play method
+                        }
+                        }
+                    });
+
+
+                    anime({
+                    targets: '#phone',
+                    innerHTML: [0, 96444265], //start and end values
+                    easing: 'linear',
+                    round: 1, //rounds off to zero decimal places
+                    duration: 200
+                    });
+
+                    anime({
+                    targets: '#email',
+                    scale: [
+                    {value: .1, easing: 'easeOutSine', duration: 500},
+                    {value: 1, easing: 'easeInOutQuad', duration: 1200}
+                    ],
+                    delay: anime.stagger(200, {grid: [14, 5], from: 'center'})
+                    });
+                
+                    var animation = anime.timeline({});
+                
+                    animation
+                    .add({
+                        targets: '#email',
+                        bottom: '20px',
+                        duration: 500,
+                        easing: 'easeInOutSine'
+                    })
+
+                </script>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>    
+
+    $(document).ready(function () {
+        $('#fullpage').fullpage({ //initialize
+        //set options
+        sectionsColor: ['#03A9F4', '#2ECC71'],
+        navigation: true,
+        navigationPosition: 'right',
+        anchors: ['section1', 'section2']
+    })});
+    
+    </script>
+
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+</body>
+</html>
